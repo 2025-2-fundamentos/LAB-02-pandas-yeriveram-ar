@@ -5,6 +5,8 @@ datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y
 librerias de pandas para resolver las preguntas.
 """
 
+import pandas as pd
+
 
 def pregunta_05():
     """
@@ -20,3 +22,12 @@ def pregunta_05():
     E    9
     Name: c2, dtype: int64
     """
+
+    archivo_path = "files/input/tbl0.tsv"
+    df = pd.read_csv(archivo_path, sep="\t")
+
+    return df.groupby("c1")["c2"].max()
+
+
+if "__main__" in __name__:
+    print(pregunta_05())
